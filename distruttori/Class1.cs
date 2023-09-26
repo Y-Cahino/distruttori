@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace distruttori
 {
-    public class Esempio
+    class Esempio :IDisposable
     {
         private string nome;
         private int numero;
+        private bool disposed = false;
         public Esempio()
         {
             nome = "";
@@ -41,12 +42,33 @@ namespace distruttori
             nome = n;
         }
         #endregion
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        //aree virtuali
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposed)
+                return;
+
+            if (disposing)
+            {
+                // rilascia le risorse gestite qui (qual'ora ci fossero)
+            }
+            // rilascia le risorse non gestite qui (qual'ora ci fossero)
+
+            disposed = true;
+        }
+
         public void visualizza()
         {
             Console.WriteLine("Nome: " + nome + "\nNumero: " + numero);
         }
         ~Esempio()
         {
+            Dispose(false);
             Console.WriteLine("Distruttore in chiamata");
         }
     }
