@@ -6,20 +6,21 @@ using System.Threading.Tasks;
 
 namespace distruttori
 {
-    public class Class1
+    public class Esempio
     {
         private string nome;
         private int numero;
-        public Class1()
+        public Esempio()
         {
             nome = "";
             numero = 0;
         }
-        public Class1(string n,int num)
+        public Esempio(string n,int num)
         {
             setnome(n);
             setnum(num);
         }
+        #region metodi_accessor
         public string getnome()
         {
             return nome;
@@ -39,7 +40,12 @@ namespace distruttori
         {
             nome = n;
         }
-        ~Class1()
+        #endregion
+        public void visualizza()
+        {
+            Console.WriteLine("Nome: " + nome + "\nNumero: " + numero);
+        }
+        ~Esempio()
         {
             Console.WriteLine("Distruttore in chiamata");
         }
