@@ -55,6 +55,7 @@ namespace distruttori
 
             if (disposing)
             {
+                Console.WriteLine("Oggetto Eliminato");
                 // rilascia le risorse gestite qui (qual'ora ci fossero)
             }
             // rilascia le risorse non gestite qui (qual'ora ci fossero)
@@ -66,6 +67,7 @@ namespace distruttori
         {
             Console.WriteLine("Nome: " + nome + "\nNumero: " + numero);
         }
+
         ~Esempio()
         {
             Dispose(false);

@@ -19,6 +19,7 @@ namespace distruttori
             int num = Convert.ToInt32(Console.ReadLine());
             es.setnum(num);
             es.visualizza();
+            es.Dispose();
         }
     }
 }
